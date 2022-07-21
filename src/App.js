@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { FindId } from "./components/findid/FindId";
+import { Forgot } from "./components/forgot/Forgot";
+import { Login } from "./components/login/Login";
+import { Singup } from "./components/singup/Singup";
+import { Globalstyled } from "./components/style/GlobalStyled";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Globalstyled />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/singup" element={<Singup />} />
+        <Route path="/forgot" element={<Forgot />} />
+        <Route path="/findid" element={<FindId />} />
+      </Routes>
+    </Router>
   );
 }
 
